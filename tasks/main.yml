@@ -15,4 +15,4 @@
     src: "{{ fonts_resource_dir }}/{{ ipafont_zip }}"
     dest: "{{ fonts_resource_dir }}"
     remote_src: yes
-  when: downloaded_zip
+  when: downloaded_zip.changed
