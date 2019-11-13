@@ -1,18 +1,10 @@
 ---
 # tasks file for ansible-role-ipafont
 
-## ipafontのファイル取得。ただし、すでに取得済みならスキップ
-- name: get ipafont zip file
-  get_url:
-    url: "{{ ipafont_zip_url }}"
-    dest: "{{ fonts_resource_dir }}"
-    force: yes
-  register: downloaded_zip
-
 ## ipafontのzipを解凍
-- name: Unarchive a file that is already on the remote machine
+- name: Unarchive a file that needs to be downloaded
   unarchive:
-    src: "{{ fonts_resource_dir }}/{{ ipafont_zip }}"
+    src: "{{ ipafont_zip_url }}"
     dest: "{{ fonts_resource_dir }}"
     remote_src: yes
-  when: downloaded_zip.changed
+    list_files: yes
