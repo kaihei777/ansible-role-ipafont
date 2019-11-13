@@ -1,2 +1,7 @@
 ---
 # defaults file for ansible-role-ipafont
+
+ipafont_version: "00303"
+ipafont_zip: "IPAfont{{ ipafont_version }}.zip"
+ipafont_zip_url: "https://ipafont.ipa.go.jp/IPAfont/{{ ipafont_zip }}"
+fonts_resource_dir: "/usr/share/fonts"
