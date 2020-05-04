@@ -8,3 +8,4 @@
     dest: "{{ fonts_resource_dir }}"
     remote_src: yes
     list_files: yes
+    creates: "{{ fonts_resource_dir }}"
